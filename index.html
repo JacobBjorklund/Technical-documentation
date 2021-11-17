@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical-Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <header id="headertitle">
+            C# Types
+        </header>
+        <a class="nav-link" href="#The_C#_type_system"> The C# type system</a>
+        <a class="nav-link" href="#Specifying_types">Specifying types</a>
+        <a class="nav-link" href="#Built_in_types">Built in types</a>
+        <a class="nav-link" href="#Custom_types">Custom types</a>
+        <a class="nav-link" href="#The_common_type_system"> The Common type system</a>
+        <a class="nav-link" href="#Value_types">Value types</a>
+    </nav>
+    <main id="main-doc">
+        <section id="The_C#_type_system" class="main-section">
+            <header id="first">
+                The C# type system
+            </header>
+            <p>C# is a strongly typed language. Every variable and constant has a type, as does every expression
+                that evaluates to a
+                value. Every method declaration specifies a name, the type and kind (value, reference, or output)
+                for each input
+                parameter and for the return value. The .NET class library defines built-in numeric types and
+                complex types that
+                represent a wide variety of constructs. These include the file system, network connections,
+                collections and arrays of
+                objects, and dates. A typical C# program uses types from the class library and user-defined types
+                that model the
+                concepts that are specific to the program's problem domain.</p>
+            <p>The information stored in a type can include the following items:</p>
+            <br>
+            <ul>
+                <li>The storage space that a variable of the type requires.</li>
+                <li>The maximum and minimum values that it can represent.</li>
+                <li>The members (methods, fields, events, and so on) that it contains.</li>
+                <li>The base type it inherits from.</li>
+                <li>The interface(s) it implements.</li>
+                <li>The kinds of operations that are permitted.</li>
+            </ul>
+            <br>
+            <p>The compiler uses type information to make sure all operations that are performed in your code are type
+                safe. For
+                example, if you declare a variable of type int, the compiler allows you to use the variable in addition
+                and subtraction
+                operations. If you try to perform those same operations on a variable of type bool, the compiler
+                generates an error, as
+                shown in the following example:
+            </p>
+            <div class="container">
+                <code class="code">
+               <span class="blue"> int</span> a =<span class="green"> 5</span>;<br>
+            <span class="blue">int</span> b = a + <span class="green">2</span>; <span class="darkgreen">//OK</span><br>
+            <br>
+            <span class="blue">bool</span> test = <span class="blue">true</span>;<br>
+            <br>
+            <span class="darkgreen">// Error. Operator '+' cannot be applied to operands of type 'int' and 'bool'.</span><br>
+            <span class="blue">int</span> c = a + test; <br>
+        </code>
+            </div>
+            <p class="move">The compiler embeds the type information into the executable file as metadata. The common
+                language
+                runtime (CLR) uses
+                that metadata at run time to further guarantee type safety when it allocates and reclaims memory.</p>
+        </section>
+        <section id="Specifying_types" class="main-section">
+            <header id="second">
+                Specifying types
+            </header>
+            <p>When you declare a variable or constant in a program, you must either specify its type or use the var
+                keyword to let the
+                compiler infer the type. The following example shows some variable declarations that use both built-in
+                numeric types and
+                complex user-defined types:</p>
+            <div class="container">
+                <code class="code"><span class="darkgreen">// Declaration: </span><br>
+                <span class="blue"> float </span> temperature; <br>
+                <span class="blue"> string</span> name; <br>
+                MyClass myClass; <br>
+                <br>
+                
+                <span class="darkgreen">// Declaration with initializers (four examples): </span><br>
+                <span class="blue"> char</span> firstLetter =<span class="orange"> 'C'</span>; <br>
+                <span class="blue"> var</span> limit = <span class="green"> 3</span>; <br>
+                <span class="blue"> int</span>[] source = {<span class="green"> 0</span>,<span class="green"> 1</span>,<span class="green"> 2 </span>,<span class="green"> 3</span>,<span class="green"> 4</span>,<span class="green"> 5</span> }; <br>
+                <span class="blue"> var</span> query =<span class="blue"> from</span> item <span class="blue">in</span> source <br>
+                <span class="space"><span class="blue"> where</span> item <= limit</span> <br>
+                <span class="space"><span class="blue"> select</span> item;</span></code>
+            </div>
+            <p>The types of method parameters and return values are specified in the method declaration. The following
+                signature shows
+                a method that requires an <span class="codetext"><code> int</code></span> as an input argument and
+                returns a string:
+            </p>
+        </section>
+        <section id="Built_in_types" class="main-section">
+            <header id="third">
+                Built in types
+            </header>
+            <p>
+                C# provides a standard set of built-in types. These represent integers, floating point values, Boolean
+                expressions, text
+                characters, decimal values, and other types of data. There are also built-in <span
+                    class="codetext"><code>string</code></span> and <span class="codetext">
+                    <code>object </code></span> types. These types are
+                available for you to use in any C# program. For the complete list of the built-in types, see <span
+                    class="blue"> <code> Built-in types.</code></span></p>
+        </section>
+        <section id="Custom_types" class="main-section">
+            <header id="fourth">
+                Custom types
+            </header>
+            <p>You use the struct, class, interface, enum, and record constructs to create your own custom types. The
+                .NET class
+                library itself is a collection of custom types that you can use in your own applications. By default,
+                the most
+                frequently used types in the class library are available in any C# program. Others become available only
+                when you
+                explicitly add a project reference to the assembly that defines them. After the compiler has a reference
+                to the
+                assembly, you can declare variables (and constants) of the types declared in that assembly in source
+                code. For more
+                information, see .NET Class Library.</p>
+        </section>
+        <section id="The_common_type_system" class="main-section">
+            <header id="fifth">
+                The common type system
+            </header>
+            <p> It's important to understand two fundamental points about the type system in .NET:</p>
+            <br>
+            <ul>
+                <li>
+                    It supports the principle of inheritance. Types can derive from other types, called base types. The
+                    derived type
+                    inherits (with some restrictions) the methods, properties, and other members of the base type. The
+                    base type can in turn
+                    derive from some other type, in which case the derived type inherits the members of both base types
+                    in its inheritance
+                    hierarchy. All types, including built-in numeric types such as System.Int32 (C# keyword: int),
+                    derive ultimately from a
+                    single base type, which is System.Object (C# keyword: object). This unified type hierarchy is called
+                    the Common Type
+                    System (CTS). For more information about inheritance in C#, see Inheritance.
+                </li>
+                <br>
+                <li>
+                    Each type in the CTS is defined as either a value type or a reference type. These types include all
+                    custom types in the
+                    .NET class library and also your own user-defined types. Types that you define by using the struct
+                    keyword are value
+                    types; all the built-in numeric types are structs. Types that you define by using the class or
+                    record keyword are
+                    reference types. Reference types and value types have different compile-time rules, and different
+                    run-time behavior.
+                </li>
+            </ul>
+        </section>
+        <section class="main-section" id="Value_types">
+            <header>
+                Value types
+            </header>
+            <p class="move2">Value types derive from System.ValueType, which derives from System.Object. Types that
+                derive from
+                System.ValueType have
+                special behavior in the CLR. Value type variables directly contain their values. The memory for a struct
+                is allocated
+                inline in whatever context the variable is declared. There's no separate heap allocation or garbage
+                collection overhead
+                for value-type variables. You can declare record struct types that are value types and include the
+                synthesized members
+                for records</p>
+        </section>
+    </main>
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>
